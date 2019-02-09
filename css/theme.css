@@ -1,0 +1,65 @@
+@media print{
+    .noprint { 
+        display:none;
+      }
+      .tips { 
+        display:none;
+      }
+}
+   label{
+       display:block;
+   }
+
+   body{
+   background-image:url(bg_body.jpg);
+       background-repeat: repeat-x;
+       font-family: "仿宋"
+   }
+   h1{
+       text-align: center;
+       font-family: "微软雅黑";
+   }
+   h2{
+       font-family: "微软雅黑";
+       font-weight: bold;
+   }
+   b{
+       font-family: "微软雅黑";
+       font-weight:normal;
+   }
+   hr{
+       height:6px;
+       background-color:#5cb85c;
+   }
+   #examPage,#examResult{
+        display: none;
+   }
+   #examPage table{
+       border: 0px;
+       font-family: "微软雅黑";
+       font-size:25px;
+       font-weight: bolder;
+       background-color:#0E80A8;
+       color:white;
+   }
+   #time{
+       text-align: center;
+       display: none; 
+       width:300px;
+       background-color:black;
+       color:whitesmoke;
+       font-family: "微软雅黑";
+       font-weight: bolder;
+       font-size:20px;
+   }
+   #postExam,#genExam,.genExamAgain{
+       width: 240px;
+       height: 40px;
+       font-family: "微软雅黑";
+       font-weight: bolder;
+       font-size:25px;
+       margin-bottom: 30px;
+   }
+   .rightSelection,.mySelection,.rightAnswer{
+       display: none;
+   }
