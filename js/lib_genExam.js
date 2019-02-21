@@ -14,6 +14,7 @@ $(function(){
         $("#examShowSelection").slideUp("slow",function(){
         });
         $("#question").html("");
+        $("#examPage h1").html("");
         $("ul").each(function(){
             var num=parseInt($(this).children("input").val(),10);
             var lib=window.lib;
@@ -22,6 +23,7 @@ $(function(){
             var ui="";
             $(this).find("input:checked").each(function(){
                 var questionChapter=$(this).val();//如，单选里，是 APU的，那些系统题。
+                $("#examPage h1").append(questionChapter+" ")
                 questionChapter=lib[questionType][questionChapter];
                 examLib=examLib.concat(questionChapter);
             });
@@ -109,6 +111,10 @@ $(function(){
             $(this).parent().find(".rightAnswer").slideDown("slow");
         });
         $("#examPage").slideDown("slow");
+        if( $("#examPage h1").html()==""){
+            $(".genExamAgain").click();
+        }
+        
     });
     $("#postExam").click(function(){
         $("#examPage").css("display","none");
