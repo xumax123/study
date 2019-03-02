@@ -119,46 +119,51 @@ $(function(){
     $("#postExam").click(function(){
         $("#examPage").css("display","none");
         $("#examResult").css("display","block");
-        
+        $("#examResult .miss").html("<h2>忘做题</h2>");
+        $("#examResult .wrong").html("<h2>做错题</h2>");
+        $("#examResult .conclusion").html("<h2>情况总结统计</h2>");     
         $("#question h2").each(function(){
-            $("#examResult .miss").html("<h2>忘做题</h2>");
-            $("#examResult .wrong").html("<h2>做错题</h2>");
-            $("#examResult .conclusion").html("");
+
 
             var ui="";
             var questionType=$(this).attr("title");
-            if(!(questionType=="单选题"||questionType=="多选题"||questionType=="判断题")){
-                return;
-            }
-           // $("#examResult .conclusion").append("<h2>"+$(this).text()+"</h2>");//单选题、多选题
-           // console.log($(this).parent().html()) 
-           var index=1;//题号
-           var rightAnswer=0;
-           var wrongAnswer=0;
-            $(this).parent().find("div[title="+questionType+"]").each(function(){
-                var result=$(this).find("span");
-                var rightSelection=result.eq(1).text();
-                var mySelection=result.eq(2).text();
-                if(rightSelection==mySelection){
-                    rightAnswer++;
+            if(questionType=="单选题"||questionType=="多选题"||questionType=="判断题"){
+                // $("#examResult .conclusion").append("<h2>"+$(this).text()+"</h2>");//单选题、多选题
+                // console.log($(this).parent().html())                         
+                $("#examResult .miss").append("<h3>"+questionType+"</h3>");
+                $("#examResult .wrong").append("<h3>"+questionType+"</h3>");
+                $("#examResult .conclusion").append("<h3>"+questionType+"</h3>");
+                var index=1;//题号
+                var rightAnswer=0;
+                var wrongAnswer=0;
+                    $(this).parent().find("div[title="+questionType+"]").each(function(){
 
-                }else{
-                    //为空，说明忘做了！
-                    if(mySelection==""){
-                        $("#examResult .miss").append($(this).html()).append("<div>正确答案为："+rightSelection+"</div>");
-                    }else{
-                        $("#examResult .wrong").append($(this).html()).append("<div>正确答案为："+rightSelection+"</div>")
-                    }
-                    wrongAnswer++;
-                }
-                index++;
-            });
-            var total=index-1;
-            var conclusion="<b>共有："+total+" 题　　做对："+rightAnswer+" 题　　做错："+wrongAnswer+"题</b>";
-            ui=ui+conclusion;
-            $("#examResult .conclusion").append(ui+"<br /><br />");
-            $(window).scrollTop(0);
-            //console.log($("#examResult").html())
+                        var result=$(this).find("span");
+                        var rightSelection=result.eq(1).text();
+                        var mySelection=result.eq(2).text();
+                        if(rightSelection==mySelection){
+                            rightAnswer++;
+
+                        }else{
+                            //为空，说明忘做了！
+                            if(mySelection==""){
+                                $("#examResult .miss").append($(this).html()).append("<div>正确答案为："+rightSelection+"</div>");
+                            }else{
+                                $("#examResult .wrong").append($(this).html()).append("<div>正确答案为："+rightSelection+"</div>")
+                            }
+                            wrongAnswer++;
+                        }
+                        index++;
+                    });
+                    var total=index-1;
+                    var conclusion="<b>共有："+total+" 题　　做对："+rightAnswer+" 题　　做错："+wrongAnswer+"题</b>";
+                    ui=ui+conclusion;
+                   
+                    $("#examResult .conclusion").append(ui+"<br /><br />");
+                    $(window).scrollTop(0);
+                    //console.log($("#examResult").html())                
+            }
+
         })
      })
 })
