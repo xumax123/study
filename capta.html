@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>咨询通告题库</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lib_capt_a.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/capta.css" />
+</head>
+
+<body>
+    <h1>咨询通告题库</h1>
+    <script>
+    $(function(){
+        for(var i=0;i<capt_lib.length;i++){
+            var quesType=capt_lib[i][0];
+            var background=capt_lib[i][1];
+            var ques=capt_lib[i][2];
+            var answer=capt_lib[i][3];
+            var quesStr='<div class="question">'+
+                ' <div class="questionBackground">'+(i+1)+"："+quesType+'<br />'+background+'</div>'+
+                '<div class="questionTitle">'+ques+'</div>'+
+                '<div class="answer">答案：<br />'+answer+'</div>'+
+                '</div>';
+            $("body").append(quesStr);
+        }
+        $(".question").click(function(){
+            if($(this).children(".answer").css("display")=="none"){
+                $(this).children(".answer").css("display","block");
+            }else{
+                $(this).children(".answer").css("display","none");
+            }
+            
+        });        
+    });
+
+    </script>
+</body>
+</html>
