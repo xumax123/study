@@ -21,8 +21,8 @@
             var ques=capt_lib[i][2];
             var answer=capt_lib[i][3];
             var quesStr='<div class="question">'+
-                ' <div class="questionBackground">'+(i+1)+"："+quesType+'<br />'+background+'</div>'+
-                '<div class="questionTitle">'+ques+'</div>'+
+                ' <a class="questionBackground" name="'+(i+1)+'"  href="#'+(i+1)+'x">'+(i+1)+"："+quesType+'<br />'+background+'</a>'+
+                '<a class="questionTitle" href="#'+(i+1)+'x">'+ques+'</a>'+
                 '<div class="answer">答案：<br />'+answer+'</div>'+
                 '</div>';
             $("body").append(quesStr);
