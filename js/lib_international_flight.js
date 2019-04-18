@@ -77,7 +77,7 @@ var lib=[
 ["单选题","国际报务知识","放行同意 HELEN 1 DEPARTURE,HABAR transitions，具体航路应为<img src='img/Snipaste_2019-01-02_15-45-31.png' /> ","HELEN—MAIKO—WENDY—SHION—HABAR"," HELEN—MAIKO—KWAT—KTE—HABAR","HELEN—MAIKO—RADAR VEC to HABAR"],
 ["单选题","国际报务知识","SSP 程序是指？","Special safeguards procedures"," Special secondary procedures","Special slot time procedures"],
 ["单选题","国际报务知识","Separation for departure 默认为(3mins for LIGHT or MEDIUM aircraft behind HEAVY aircraft),当天指挥从A2/A13进行减跑道起飞（假设性能允许），是否还继续遵循此程序？","NO","YES"],
-["单选题","国际报务知识","请看下图<b>google</b>，机场灯光系统里包含着A R T，其含义分别为<img src='img/Snipaste_2019-01-02_15-49-59.png' /> ","A= Approach R=Runway T=Threshold","A=Aerodrome R=Runway T=Threshold","A=Approach R=Runway T=Taxiway"],
+["单选题","国际报务知识","请看下图，机场灯光系统里包含着A R T，其含义分别为<img src='img/Snipaste_2019-01-02_15-49-59.png' /> ","A= Approach R=Runway T=Threshold","A=Aerodrome R=Runway T=Threshold","A=Approach R=Runway T=Taxiway"],
 ["单选题","国际报务知识","飞机注册号  __________","registration number"],
     ["填空题","国际报务知识","地面电源  __________","GPU(ground power unit)"],
     ["填空题","国际报务知识","外部气源  __________","external pneumatic power"], 
