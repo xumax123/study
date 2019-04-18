@@ -47,7 +47,7 @@ $(function(){
                 ui=ui+"<b>"+(i+1)+"："+v.问题+"</b><br />";
                 if(questionType=="单选题"){
                     v.选项.each(function(val,index){
-                        var name=v.问题;
+                        var name=v.问题.replace(/\<.*?\>/gm,"");
                         ui=ui+"<label><input type='radio' value='"+val+"' name='"+name+"' />"+val+"</label>";
                     });  
                     ui=ui+"<span class='rightResult'></span><span class='rightSelection'>"+v.答案+"</span><span class='mySelection'></span><br /></div>" ;                
