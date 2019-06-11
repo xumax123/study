@@ -10,7 +10,7 @@ function genSlectionUI(lib,questionType){
     var ui="";
     questionType.each(function(v,i){
         ui=ui+
-        "<h2>第"+String(i+1).toChineseNumber()+"步："+
+        "<h2>"+String(i+1).toChineseNumber()+"、"+
         v+"("+getQuestionNumberByType(lib[v])+")</h2><ul title="+
         v+">";
         for(var question in lib[v]){
