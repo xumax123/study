@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>题库内容在线练习</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.stopattop.js"></script>
+    <script type="text/javascript" src="js/tool.js"></script>
+    <script type="text/javascript" src="js/lib_sim.js"></script>
+    <script type="text/javascript" src="js/lib_change_for_easy_use.js"></script>
+    <script type="text/javascript" src="js/lib_showSelection.js"></script>
+    <script type="text/javascript" src="js/lib_genExam.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/theme.css" />
+</head>
+
+<body>
+<div id="examShowSelection">
+    <h1>2019年下半年模拟机题库</h1>
+    <hr />
+    <div class="examSelection"></div>
+    <hr />
+    <label>
+        <input id="shuffle" type="checkbox" value="题目随机">题目顺序随机</input>
+    </label>
+    <img src="img/logo.png" width="240px;" /><br />
+    <button id="genExam">练习</button>
+    <OBJECT style="display: none;" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" height="0" id="wb" name="wb" width="0"></OBJECT>
+</div>
+<div id="examPage">
+    <h1>题库练习</h1>
+    <div id="question">
+
+        
+    </div>
+    <hr />
+    <img src="img/logo.png" width="240px;" /><br />
+    <button class="genExamAgain">重新选题练习</button>  <button id="postExam">生成错题集</button>    
+</div>
+<div id="examResult">
+    <h1>练习结果</h1>
+    <div class="miss">
+        
+    </div>
+    <div class="wrong">
+    </div>
+    <div class="conclusion">
+        
+    </div>
+        <style type="text/css">
+        .examResultTable
+        {
+        font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        width:100%;
+        border-collapse:collapse;
+        }
+        
+        .examResultTable td, .examResultTable th 
+        {
+        font-size:1em;
+        border:1px solid #98bf21;
+        padding:3px 7px 2px 7px;
+        }
+        
+        .examResultTable th 
+        {
+        font-size:1.1em;
+        text-align:left;
+        padding-top:5px;
+        padding-bottom:4px;
+        background-color:#A7C942;
+        color:#ffffff;
+        }   
+       </style>
+       <img src="img/logo.png" width="240px;" /><br />
+       <button class="genExamAgain">再选题练习</button>
+</div>
+
+<script>
+$(function(){
+    $(".examSelection ul").children("input").each(function(){
+        $(this).val(3000);
+        $(this).css("display","none");
+        //目的就是，对所有选择的题，都显示出来，以供练习。
+        //当然，如果题题比3000多，那就显示不出来了。这只是一个偷懒的决定。
+    })
+});
+</script>   
+</body>
+</html>
