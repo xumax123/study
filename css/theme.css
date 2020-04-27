@@ -52,8 +52,8 @@
        font-weight: bolder;
        font-size:20px;
    }
-   #postExam,#genExam,.genExamAgain{
-       width: 240px;
+  #showResult, #postExam,#genExam,.genExamAgain{
+      min-width: 240px;
        height: 40px;
        font-family: "微软雅黑";
        font-weight: bolder;
