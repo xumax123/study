@@ -21,9 +21,9 @@
             var background=capt_lib[i][1];
             var ques=capt_lib[i][2];
             var answer=capt_lib[i][3];
-            var quesStr='<div class="question">'+
-                ' <a class="questionBackground" name="'+(i+1)+'"  href="#'+(i+1)+'x">'+(i+1)+"："+quesType+'<br />'+background+'</a>'+
-                '<a class="questionTitle" href="#'+(i+1)+'x">'+ques+'</a>'+
+            var quesStr='<div class="question" id='+(i+1)+'>'+
+                ' <a class="questionBackground"  href="#'+(i+1)+'">'+(i+1)+"："+quesType+'<br />'+background+'</a>'+
+                '<a class="questionTitle" >'+ques+'</a>'+
                 '<div class="answer">答案：<br />'+answer+'</div>'+
                 '</div>';
             $("body").append(quesStr);
@@ -50,5 +50,6 @@
     });
 
     </script>
+
 </body>
 </html>
