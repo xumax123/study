@@ -45,20 +45,22 @@ $(function(){
             examLib.each(function(v,i){
                 ui=ui+"<div title="+questionType+" class='question'>";
                 ui=ui+"<b>"+(i+1)+"："+v.问题+"</b><br />";
+                var name=encodeURIComponent(v.问题)
                 if(questionType=="单选题"){
                     v.选项.each(function(val,index){
-                        var name=v.问题.replace(/\<.*?\>/gm,"");
+                        //var name=v.问题.replace(/\<.*?\>/gm,"");
+                        
                         ui=ui+"<label><input type='radio' value='"+val+"' name='"+name+"' />"+val+"</label>";
                     });  
                     ui=ui+"<span class='rightResult'></span><span class='rightSelection'>"+v.答案+"</span><span class='mySelection'></span><br /></div>" ;                
                 }else if(questionType=="判断题"){
-                    var name=v.问题;
+                    //var name=v.问题;
                     ui=ui+"<label><input type='radio' value='对'name='"+name+"' />对</label>"+
                     "<label><input type='radio' value='错' name='"+name+"' />错</label>";
                     ui=ui+"<span class='rightResult'></span><span class='rightSelection'>"+v.答案+"</span><span class='mySelection'></span><br /></div>";
                 }else if(questionType=="多选题"){
                     v.选项.each(function(val,index){
-                        var name=v.问题;
+                        //var name=v.问题;
                         ui=ui+"<label><input type='checkbox' value='"+val+"' name='"+name+"' />"+val+"</label>";
                     });  
                     ui=ui+"<button class='makeSelection'>确定选择</button><span class='rightResult'></span><span class='rightSelection'>"+v.答案+"</span><span class='mySelection'></span><br /></div>" ;                
