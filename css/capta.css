@@ -3,8 +3,8 @@
     display: none;
     padding: 7px;
     border-radius: 10px;
-    background-color: #343a40;
-    color:white;
+    background-color: #e4e8ec;
+    color:rgb(7, 0, 0);
     font-size:20px;
 }
 .question{
@@ -16,6 +16,7 @@
 a{
     display: block;
     text-decoration: none;
+    cursor: pointer;
 }
 .questionBackground:visited{
     border-top-right-radius: 10px;

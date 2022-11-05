@@ -16,21 +16,25 @@
     <!-- <img src="img/logo.png" width="200px;" /><br /> -->
     <script>
     $(function(){
+        
         for(var i=0;i<capt_lib.length;i++){
             var quesType=capt_lib[i][0];
             var background=capt_lib[i][1];
             var ques=capt_lib[i][2];
             var answer=capt_lib[i][3];
             var quesStr='<div class="question" id='+(i+1)+'>'+
-                ' <a class="questionBackground"  href="#'+(i+1)+'">'+(i+1)+"："+quesType+'<br />'+background+'</a>'+
+                ' <a class="questionBackground">'+(i+1)+"："+quesType+'<br />'+background+'</a>'+
                 '<a class="questionTitle" >'+ques+'</a>'+
                 '<div class="answer">答案：<br />'+answer+'</div>'+
                 '</div>';
             $("body").append(quesStr);
         }
+
         $(".question").click(function(){
             if($(this).children(".answer").css("display")=="none"){
+                localStorage.questionID=$(this).attr("id")
                 $(this).children(".answer").css("display","block");
+                $(this).children(".questionBackground").css({"color":"white","background-color":"#343a40"});
             }else{
                 $(this).children(".answer").css("display","none");
             }
@@ -46,7 +50,18 @@
                 $(".questionBackground:contains(直升机)").parent().hide();
             }
         })
-       
+        let id=localStorage.questionID;
+        console.log(id)
+
+        let url=window.location.href.split("#")
+        console.log(url.length)
+        if(url.length>1){
+            url=url[0]
+            window.location.href=url;
+        }else{
+
+            window.location.replace(url+"#"+id);
+        }
     });
 
     </script>
