@@ -27,7 +27,8 @@
         $("#clearRecords").click(function(){
             localStorage.removeItem("records")
             localStorage.removeItem("questionID")
-            location.reload()
+            url=window.location.href
+            location.href=url.split("#")[0]
         })
         for(var i=0;i<capt_lib.length;i++){
             var quesType=capt_lib[i][0];
