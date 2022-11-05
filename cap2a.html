@@ -14,6 +14,7 @@
 <body>
     <h1>咨询通告题库</h1>
     <button id="clearRecords" class="button-6" role="button">清除学习记录</button>
+    <button id="helicopter" class="button-6" role="button">显示直升机内容</button>
     <!-- <img src="img/logo.png" width="200px;" /><br /> -->
     <script>
     let records=localStorage.records
@@ -22,7 +23,6 @@
     }else{
         records=new Set()
     }
-    console.log(records)
     $(function(){
         $("#clearRecords").click(function(){
             localStorage.removeItem("records")
@@ -57,28 +57,30 @@
             
         });  
         $(".questionBackground:contains(直升机)").parent().hide();
-        $("body").dblclick(function(){
+
+        $("#helicopter").click(function(){
             if($(".questionBackground:contains(直升机)").parent().css("display")=="none"){
 
                 $(".questionBackground:contains(直升机)").parent().show();
+                $(this).text("隐藏直升机内容")
             }else{
 
                 $(".questionBackground:contains(直升机)").parent().hide();
+                $(this).text("显示直升机内容")
             }
         })
         //处理两个：1.进入界面后，显示上次最后浏览的问题
         //         2. 上次浏览的东西，都显示点击过的样式。
         let id=localStorage.questionID;
+        let url=window.location.href.split("#")
         if(id){
-            //只有如下的操作，下次刷新这个界面时，你才会回到历史记录上去。
-            let url=window.location.href.split("#")
+            //只有如下的操作，下次刷新这个界面时，你才会回到历史记录上去。     
             if(url.length>1){
-                url=url[0]
-                window.location.href=url;
-            }else{
-    
-                window.location.replace(url+"#"+id);
+                url=url[0];
+                window.location.replace(url);
             }
+            window.location.replace(url+"#"+id);
+
         }
         records.forEach(id => {
             $("#"+id).children(".questionBackground").css({"color":"white","background-color":"#343a40"});
