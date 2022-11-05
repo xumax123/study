@@ -13,10 +13,22 @@
 
 <body>
     <h1>咨询通告题库</h1>
+    <button id="clearRecords" class="button-6" role="button">清除学习记录</button>
     <!-- <img src="img/logo.png" width="200px;" /><br /> -->
     <script>
+    let records=localStorage.records
+    if(records){
+        records=new Set(JSON.parse(records))
+    }else{
+        records=new Set()
+    }
+    console.log(records)
     $(function(){
-        
+        $("#clearRecords").click(function(){
+            localStorage.removeItem("records")
+            localStorage.removeItem("questionID")
+            location.reload()
+        })
         for(var i=0;i<capt_lib.length;i++){
             var quesType=capt_lib[i][0];
             var background=capt_lib[i][1];
@@ -32,7 +44,10 @@
 
         $(".question").click(function(){
             if($(this).children(".answer").css("display")=="none"){
-                localStorage.questionID=$(this).attr("id")
+                let id=$(this).attr("id");
+                localStorage.questionID=id
+                records.add(id)
+                localStorage.records=JSON.stringify(Array.from(records))
                 $(this).children(".answer").css("display","block");
                 $(this).children(".questionBackground").css({"color":"white","background-color":"#343a40"});
             }else{
@@ -50,18 +65,24 @@
                 $(".questionBackground:contains(直升机)").parent().hide();
             }
         })
+        //处理两个：1.进入界面后，显示上次最后浏览的问题
+        //         2. 上次浏览的东西，都显示点击过的样式。
         let id=localStorage.questionID;
-        console.log(id)
-
-        let url=window.location.href.split("#")
-        console.log(url.length)
-        if(url.length>1){
-            url=url[0]
-            window.location.href=url;
-        }else{
-
-            window.location.replace(url+"#"+id);
+        if(id){
+            //只有如下的操作，下次刷新这个界面时，你才会回到历史记录上去。
+            let url=window.location.href.split("#")
+            if(url.length>1){
+                url=url[0]
+                window.location.href=url;
+            }else{
+    
+                window.location.replace(url+"#"+id);
+            }
         }
+        records.forEach(id => {
+            $("#"+id).children(".questionBackground").css({"color":"white","background-color":"#343a40"});
+        });
+
     });
 
     </script>
