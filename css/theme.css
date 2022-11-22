@@ -66,3 +66,19 @@
    .rightSelection,.mySelection,.rightAnswer{
        display: none;
    }
+
+   .rounded-circle {
+    border-radius: 50%!important;
+    width:2.5rem;
+    position:fixed;
+    bottom: 0px;
+    right: 0px;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+}
